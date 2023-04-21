@@ -9,13 +9,13 @@ export class FlightsController {
 
   @Get()
   async findAll(
-    @Query("departureLocation") departureLocation: string,
+    @Query("origin") origin: string,
     @Query("departureDate") departureDate: string,
     @Query("returnDate") returnDate: string,
     @Query("limit") limit: number,
     @Res() res,
   ) {
-    const flights = await this.flightsService.findAll(departureLocation, departureDate, returnDate, limit);
+    const flights = await this.flightsService.findAll(origin, departureDate, returnDate, limit);
     res.send(flights);
   }
   
