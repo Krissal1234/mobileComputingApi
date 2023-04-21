@@ -11,10 +11,19 @@ export class Flight {
   destination: string;
 
   @Prop({ required: true })
-  departureDate: Date;
+  departureDate: string;
 
   @Prop({ required: true })
-  arrivalDate: Date;
+  departurTime: string;
+
+  @Prop({ required: true })
+  arrivalDate: string;
+
+  @Prop({ required: true })
+  arrivalTime: string;
+
+  @Prop({ required: true })
+  flightDuration: string;
 
   @Prop({ required: true })
   airline: string;
@@ -22,24 +31,10 @@ export class Flight {
   @Prop({ required: true })
   price: number;
 
-  @Prop({ required: true })
-  flightNumber: number;
-
-  @Prop({ required: true })
-  departureAirport: string;
-
-  @Prop({ required: true })
-  arrivalAirport: string;
-  
-  @Prop({ required: true })
-  flightDuration: number;
-
   @Prop()
   imageUrl: string;
 
-  static get modelName(): string {
-    return 'Flight';
-  }
+
 }
 
 export type FlightDocument = Flight & Document;
