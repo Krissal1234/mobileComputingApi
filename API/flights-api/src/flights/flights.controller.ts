@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, Res } from '@nestjs/common';
 import { FlightsService } from './flights.service';
 import { CreateFlightDto } from './dto/create-flight.dto';
 import { UpdateFlightDto } from './dto/update-flight.dto';
@@ -8,16 +8,17 @@ export class FlightsController {
   constructor(private readonly flightsService: FlightsService) {}
 
   @Get()
-  findAll(
-    @Param("departureLocation") departureLocation: string,
-    @Param("departureDate") departureDate: string,
-    @Param("arrivalDate") arrivalDate: string,
-
+  async findAll(
+    @Query("departureLocation") departureLocation: string,
+    @Query("departureDate") departureDate: string,
+    @Query("returnDate") returnDate: string,
     @Query("limit") limit: number,
-
+    @Res() res,
   ) {
-    return this.flightsService.findAll(departureLocation,departureDate,arrivalDate,limit);
+    const flights = await this.flightsService.findAll(departureLocation, departureDate, returnDate, limit);
+    res.send(flights);
   }
+  
 
   @Get(':id')
   findOne(@Param('id') id: string) {

@@ -1,6 +1,5 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { CreateFlightDto } from './dto/create-flight.dto';
-import { UpdateFlightDto } from './dto/update-flight.dto';
 import { Flight, FlightDocument } from './schema/flight.schema';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose'
@@ -12,8 +11,16 @@ export class FlightsService {
   }
 
   async findAll(departureLocation: string, departureDate: string, returnDate: string, limit: number): Promise<Flight[]> {
-    let flights = this.flightModel.find().limit(limit).exec();
-    return flights;
+    // let flights = this.flightModel.find().limit(limit).exec();
+    try {
+      const data = await this.flightModel.find().exec();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+      throw new InternalServerErrorException();
+    }
+   
   }
 
   findOne(id: number) {

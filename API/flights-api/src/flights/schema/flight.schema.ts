@@ -4,6 +4,10 @@ import { Document } from 'mongoose';
 
 @Schema()
 export class Flight {
+
+  @Prop({ required: true })
+  _id: string;
+
   @Prop({ required: true })
   origin: string;
 
