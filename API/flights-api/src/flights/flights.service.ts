@@ -11,7 +11,7 @@ export class FlightsService {
     return 'This action adds a new flight';
   }
 
-  findAll(departureLocation: string, departureDate: string, returnDate: string, limit: number) {
+  async findAll(departureLocation: string, departureDate: string, returnDate: string, limit: number): Promise<Flight[]> {
     let flights = this.flightModel.find().limit(limit).exec();
     return flights;
   }
@@ -20,11 +20,4 @@ export class FlightsService {
     return `This action returns a #${id} flight`;
   }
 
-  update(id: number, updateFlightDto: UpdateFlightDto) {
-    return `This action updates a #${id} flight`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} flight`;
-  }
 }
