@@ -12,8 +12,8 @@ export class FlightsService {
   }
 
   findAll(departureLocation: string, departureDate: string, returnDate: string, limit: number) {
-    let flights = this.flightModel.find()
-    return `This action returns all flights`;
+    let flights = this.flightModel.find().limit(limit).exec();
+    return flights;
   }
 
   findOne(id: number) {
