@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { FlightsService } from './flights.service';
 import { FlightsController } from './flights.controller';

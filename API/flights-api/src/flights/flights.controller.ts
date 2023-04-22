@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, Res } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+import { Controller, Get, Param, Query, Res } from '@nestjs/common';
 import { FlightsService } from './flights.service';
-import { CreateFlightDto } from './dto/create-flight.dto';
-import { UpdateFlightDto } from './dto/update-flight.dto';
+
 
 @Controller('flights')
 export class FlightsController {
