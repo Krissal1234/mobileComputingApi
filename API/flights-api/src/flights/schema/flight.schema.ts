@@ -1,13 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
+export type FlightDocument = Flight & Document;
 
 @Schema()
 export class Flight {
-
-  @Prop({ required: true })
-  _id: string;
-
   @Prop({ required: true })
   origin: string;
 
@@ -18,7 +15,7 @@ export class Flight {
   departureDate: string;
 
   @Prop({ required: true })
-  departurTime: string;
+  departureTime: string;
 
   @Prop({ required: true })
   arrivalDate: string;
@@ -35,11 +32,36 @@ export class Flight {
   @Prop({ required: true })
   price: number;
 
-  @Prop()
+  @Prop({ required: true })
   imageUrl: string;
 
-
+  @Prop({
+    required: true,
+    type: () => ({
+      origin: String,
+      destination: String,
+      departureDate: String,
+      departureTime: String,
+      arrivalDate: String,
+      arrivalTime: String,
+      flightDuration: String,
+      airline: String,
+      price: Number,
+      imageUrl: String,
+    }),
+  })
+  return: {
+    origin: string;
+    destination: string;
+    departureDate: string;
+    departureTime: string;
+    arrivalDate: string;
+    arrivalTime: string;
+    flightDuration: string;
+    airline: string;
+    price: number;
+    imageUrl: string;
+  };
 }
 
-export type FlightDocument = Flight & Document;
 export const FlightSchema = SchemaFactory.createForClass(Flight);

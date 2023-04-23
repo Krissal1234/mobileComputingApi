@@ -19,7 +19,7 @@ export class FlightsService {
       query['departureDate'] = departureDate;
     }
     if (arrivalDate) {
-      query['arrivalDate'] = arrivalDate;
+      query['return.arrivalDate'] = arrivalDate;
     }
     
     try {
