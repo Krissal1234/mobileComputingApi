@@ -30,6 +30,9 @@ export class Flight {
   airline: string;
 
   @Prop({ required: true })
+  flightNumber: string;
+
+  @Prop({ required: true })
   price: number;
 
   @Prop({ required: true })
@@ -46,11 +49,12 @@ export class Flight {
       arrivalTime: String,
       flightDuration: String,
       airline: String,
+      flightNumber: String,
       price: Number,
       imageUrl: String,
     }),
   })
-  return: {
+  returnFlight: {
     origin: string;
     destination: string;
     departureDate: string;
@@ -59,6 +63,7 @@ export class Flight {
     arrivalTime: string;
     flightDuration: string;
     airline: string;
+    flightNumber: string;
     price: number;
     imageUrl: string;
   };
