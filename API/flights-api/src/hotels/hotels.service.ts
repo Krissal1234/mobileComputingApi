@@ -13,18 +13,18 @@ export class HotelsService {
     const query = {};
 
     if (destination) {
-      query['destination'] = destination;
+      query['country'] = destination;
     }
     
     if (arrivalDate) {
       query['available_dates.start_date'] = {
-        $lte: arrivalDate
+        $lte: new Date(arrivalDate)
       };
     }
     
     if (departureDate) {
       query['available_dates.end_date'] = {
-        $gte: departureDate
+        $gte: new Date(departureDate)
       };
     }
     

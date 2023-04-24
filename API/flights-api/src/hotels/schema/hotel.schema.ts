@@ -10,7 +10,10 @@ export class Hotel {
   _id: string;
 
   @Prop({ required: true })
-  destination: string;
+  country: string; 
+
+  @Prop({ required: true })
+  city: string;
 
   @Prop({ required: true })
   hotel_name: string;

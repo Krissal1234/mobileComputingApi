@@ -8,7 +8,7 @@ import { HotelsModule } from './hotels/hotels.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://timmyzammit:stupidPassword@apitest.2ztg8nb.mongodb.net/API'),
+    MongooseModule.forRoot('mongodb+srv://krissal1234:20030902@apitest.jizb9xr.mongodb.net/API'),
     FlightsModule,
     HotelsModule],
   controllers: [AppController],

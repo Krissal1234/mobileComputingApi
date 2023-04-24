@@ -9,7 +9,7 @@ export class HotelsController {
 
   @Get()
   async findAll(
-    @Query("destination") destination: string,
+    @Query("country") destination: string,
     @Query("arrivalDate") arrivalDate: Date,
     @Query("departureDate") departureDate: Date,
     @Query("limit") limit: number,
