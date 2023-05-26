@@ -7,7 +7,7 @@ import { Document } from 'mongoose';
 export class Flight {
 
   @Prop({ required: true })
-  _id: string;
+  id: string;
 
   @Prop({ required: true })
   origin: string;
